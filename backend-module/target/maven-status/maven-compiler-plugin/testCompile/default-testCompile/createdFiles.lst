@@ -1,0 +1,5 @@
+com\warungku\pos\service\ProductServiceTest$GetProductsByCategory.class
+com\warungku\pos\service\ProductServiceTest$GetAllProducts.class
+com\warungku\pos\service\ProductServiceTest$SearchProducts.class
+com\warungku\pos\service\ProductServiceTest.class
+com\warungku\pos\controller\CategoryControllerTest.class
