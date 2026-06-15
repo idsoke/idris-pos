@@ -4,6 +4,12 @@
 
 ---
 
+## Screenshot
+
+![POS Screen](docs/screenshots/pos_screen.png)
+
+---
+
 ## Tech Stack
 
 | Layer | Teknologi |
