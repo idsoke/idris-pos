@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.math.BigDecimal;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -302,9 +304,25 @@ public class DataSeeder {
                 .stock(stock)
                 .minStock(5)
                 .category(category)
+                .image(generateSampleImageUrl(name, category))
                 .isActive(true)
                 .build();
         product.setTenantId(tenantId);
         return product;
+    }
+
+    /**
+     * Generates a placeholder image URL for seeded products, color-coded by category.
+     */
+    private String generateSampleImageUrl(String productName, Category category) {
+        String colors = switch (category != null ? category.getName() : "") {
+            case "Makanan" -> "FF6B6B/FFFFFF";
+            case "Minuman" -> "4DABF7/FFFFFF";
+            case "Snack" -> "FFD43B/333333";
+            case "Dessert" -> "DA77F2/FFFFFF";
+            default -> "CED4DA/333333";
+        };
+        String text = URLEncoder.encode(productName, StandardCharsets.UTF_8);
+        return "https://placehold.co/400x400/" + colors + ".png?text=" + text;
     }
 }
